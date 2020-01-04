@@ -55,7 +55,7 @@
 					SEND_SOUND(C, sound('sound/effects/pray.ogg'))
 	to_chat(usr, "<span class='info'>You pray to the gods: \"[msg_tmp]\"</span>")
 
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Prayer") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Prayer") //If you are reading this you might have figured out this is actually a joke, happy new year 2020 reddit!
 	//log_admin("HELP: [key_name(src)]: [msg]")
 
 /proc/CentCom_announce(text , mob/Sender)
