@@ -21,6 +21,7 @@
 	var/font_color = "purple"
 	var/prayer_type = "PRAYER"
 	var/deity
+	var/pray_count = 0
 	if(usr.job == "Chaplain")
 		cross.icon_state = "kingyellow"
 		font_color = "blue"
@@ -41,8 +42,12 @@
 	
 	var/msg_tmp = msg
 	msg = "<span class='adminnotice'>[icon2html(cross, GLOB.admins)]<b><font color=[font_color]>[prayer_type][deity ? " (to [deity])" : ""]: </font>[ADMIN_FULLMONTY(src)] [ADMIN_SC(src)]:</b> <span class='linkify'>[msg]</span></span>"
+	pray_count ++ //This is to pester the bad admins who never respond to prayers. See https://tgstation13.org/phpBB/viewtopic.php?f=2&t=539&start=50#p10198
 	
 	for(var/client/C in GLOB.admins)
+		if(pray_count > 10)
+			to_chat(C, "<span class='adminsay'>Answer peoples prayers you useless fucks!"%</span>")
+			SEND_SOUND(C, sound('sound/effects/adminhelp.ogg'))
 		if(C.prefs.chat_toggles & CHAT_PRAYER)
 			to_chat(C, msg)
 			if(C.prefs.toggles & SOUND_PRAYERS)
