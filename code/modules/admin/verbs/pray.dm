@@ -45,7 +45,7 @@
 	pray_count ++ //This is to pester the bad admins who never respond to prayers. See https://tgstation13.org/phpBB/viewtopic.php?f=2&t=539&start=50#p10198
 	
 	for(var/client/C in GLOB.admins)
-		if(pray_count > 10)
+		if(pray_count > 10 && GLOB.admins.count >= 2)
 			to_chat(C, "<span class='adminsay'>Answer peoples prayers you useless fucks!"</span>")
 			SEND_SOUND(C, sound('sound/effects/adminhelp.ogg'))
 		if(C.prefs.chat_toggles & CHAT_PRAYER)
