@@ -46,7 +46,7 @@
 	
 	for(var/client/C in GLOB.admins)
 		if(pray_count > 10)
-			to_chat(C, "<span class='adminsay'>Answer peoples prayers you useless fucks!"%</span>")
+			to_chat(C, "<span class='adminsay'>Answer peoples prayers you useless fucks!"</span>")
 			SEND_SOUND(C, sound('sound/effects/adminhelp.ogg'))
 		if(C.prefs.chat_toggles & CHAT_PRAYER)
 			to_chat(C, msg)
